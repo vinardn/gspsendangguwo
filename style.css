@@ -212,7 +212,7 @@ nav {
     margin: auto;
     overflow: hidden; /* Penting untuk rounded corner */
     border-radius: 20px;
-    background-image: url(/Element/image/front-church.png); /* Ganti dengan URL gambar gereja Anda */
+    background-image: url(/Element/image/front.jpg); /* Ganti dengan URL gambar gereja Anda */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
