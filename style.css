@@ -7,17 +7,21 @@
     font-family: "Poppins", sans-serif;
 }
 
+/* ====================== */
+/* Navbar Start */
+/* ====================== */
+
 nav {
     display: flex;
-    position: fixed;
     width: 100%;
     justify-content: space-between; /* Menjaga logo di kiri dan menu di kanan */
     align-items: center;
     background-color: #ffffff; /* Latar belakang putih */
     padding: 10px 5%; /* Padding atas/bawah 10px, kiri/kanan 5% */
     box-shadow: 0px 0px 4px #000000;
+    z-index: 100;
+    position: fixed;
     
-   
 }
 
 /* Logo */
@@ -192,3 +196,243 @@ nav {
     }
 
 }
+
+/* ====================== */
+/* Navbar End */
+/* ====================== */
+
+/* ====================== */
+/* Hero Start */
+/* ====================== */
+
+.hero-section {
+    position: relative;
+    width: 95%; /* Lebar di desktop/tablet */
+    height: 700px; /* Tinggi hero section */
+    margin: auto;
+    overflow: hidden; /* Penting untuk rounded corner */
+    border-radius: 20px;
+    background-image: url('/Element/image/front-church.png'); /* Ganti dengan URL gambar gereja Anda */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Overlay Biru dengan Transparansi */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Warna: Biru dengan transparansi lembut. Sesuaikan alpha (0.6) untuk kecerahan */
+    background-color: rgba(255, 255, 255, 0.6); 
+    
+    /* Gradasi untuk meniru efek cahaya di bagian atas/bawah */
+    background-image: linear-gradient(
+        to bottom, 
+        rgba(60, 150, 255, 0.7), /* Lebih terang di atas */
+        rgba(60, 150, 255, 0.5)  /* Lebih gelap/pudar di bawah */
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Konten Teks */
+.hero-content {
+    padding: 20px;
+}
+
+.greeting-text {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.paroki-name {
+    font-size: 3.5em; /* Ukuran font besar */
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    /* Efek shadow teks ringan seperti di gambar */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); 
+}
+
+.address {
+    font-size: 0.9em;
+    font-weight: 400;
+    color: white;
+    margin-top: 10px;
+    /* Garis pemisah tipis di atas alamat (opsional, tapi terlihat di gambar) */
+    padding-top: 10px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.3); 
+}
+
+/* Responsif untuk Layar Kecil (HP) */
+@media (max-width: 600px) {
+    .hero-section {
+        height: 400px;
+        width: 100%;
+        border-radius: 0; /* Menghilangkan rounded corner di HP agar full-width */
+    }
+
+    .paroki-name {
+        font-size: 2.2em; /* Mengecilkan ukuran font */
+    }
+    
+    .greeting-text {
+        font-size: 1.2em;
+    }
+    
+    .address {
+        font-size: 0.8em;
+    }
+}
+
+/* ====================== */
+/* Hero End */
+/* ====================== */
+
+/* ====================== */
+/* Pengenalan Start */
+/* ====================== */
+
+.container-pengenalan-gereja {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Bagian Header Utama (Mengenal Gereja St. Paulus Sendangguwo) */
+.sejarah-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--secondary-text);
+    margin-bottom: 5px;
+}
+
+.divider {
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 10px auto 15px;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    font-weight: 400;
+    color: var(--accent-color);
+    margin-bottom: 50px;
+}
+
+/* Area Konten (Profil & Sejarah) */
+.content-wrapper {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content-wrapper h3 {
+    font-size: 2em;
+    font-weight: 600;
+    color: var(--secondary-text);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Tata Letak Dua Kolom (Gambar dan Teks) */
+.history-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; 
+}
+
+/* Kolom Gambar */
+.history-image {
+    flex-shrink: 0; 
+    width: 40%;
+    max-width: 350px; 
+    padding-top: 20px;
+}
+
+.history-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Kolom Teks Sejarah */
+.history-text {
+    flex-grow: 1;
+    font-size: 0.95em;
+    padding-top: 20px;
+}
+
+.history-text p {
+    margin-bottom: 20px;
+}
+
+/* Styling Teks Khusus (simulasi link/highlight) */
+.history-text p a, 
+.history-text p strong { 
+    color: var(--primary-blue, #007bff); 
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .sejarah-section {
+        padding: 50px 0;
+    }
+
+    .section-header h2 {
+        font-size: 2em;
+    }
+
+    .history-layout {
+        flex-direction: column; 
+        gap: 20px;
+    }
+
+    .history-image {
+        width: 100%;
+        max-width: 100%;
+        padding-top: 0;
+    }
+    
+    .history-image img {
+        width: 80%; 
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* PERUBAHAN: class container-pengenalan-gereja di responsif */
+    .container-pengenalan-gereja {
+        padding: 0 10px; /* Tambahkan padding agar konten tidak terlalu rapat di pinggir HP */
+    }
+
+    .content-wrapper {
+        padding: 0 10px;
+    }
+
+    .history-text {
+        padding-top: 10px;
+    }
+}
+
+/* ====================== */
+/* Pengenalan End */
+/* ====================== */
