@@ -68,11 +68,13 @@ nav {
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
     border-top: 3px solid #00bcd4; /* Aksen warna */
+    transition: 0.8s;
 }
 
 .menu li:hover > ul {
     opacity: 1; /* Tampilkan saat hover */
     visibility: visible;
+    transition: 0.8s;
 }
 
 .menu ul li {
