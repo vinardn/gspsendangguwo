@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+nav {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-between; /* Menjaga logo di kiri dan menu di kanan */
+    align-items: center;
+    background-color: #ffffff; /* Latar belakang putih */
+    padding: 10px 5%; /* Padding atas/bawah 10px, kiri/kanan 5% */
+    box-shadow: 0px 0px 4px #000000;
+    
+   
+}
+
+/* Logo */
+.logo-nav {
+    width: 200px;
+}
+
+.logo-nav img {
+    width: 100%;
+}
+
+/* Menu Navigasi */
+.menu {
+    list-style: none;
+    display: flex; /* Menu horizontal */
+}
+
+.menu > li {
+    padding: 0 15px;
+    position: relative; /* Penting untuk dropdown */
+}
+
+.menu > li > a {
+    text-decoration: none;
+    color: #1a237e; /* Warna teks menu utama */
+    font-weight: 500;
+    font-size: 1em;
+    padding: 20px 0; /* Padding vertikal untuk area klik */
+    display: block;
+    transition: color 0.3s;
+}
+
+.menu > li > a:hover {
+    color: #8e24aa; /* Efek hover */
+}
+
+/* Dropdown Menu */
+.menu ul {
+    list-style: none;
+    position: absolute;
+    top: 100%; /* Posisi di bawah item utama */
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 200px;
+    opacity: 0; /* Sembunyikan secara default */
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    border-top: 3px solid #00bcd4; /* Aksen warna */
+}
+
+.menu li:hover > ul {
+    opacity: 1; /* Tampilkan saat hover */
+    visibility: visible;
+}
+
+.menu ul li {
+    padding: 0;
+}
+
+.menu ul li a {
+    padding: 10px 15px;
+    display: block;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #1a237e;
+    font-size: 0.9em;
+}
+
+.menu ul li a:hover {
+    background-color: #f1f1f1;
+    color: #8e24aa;
+    
+}
+
+/* Sembunyikan Hamburger Icon (default desktop) */
+.hamburger {
+    display: none;
+}
+
+/* Breakpoint Responsif (Misalnya, untuk layar lebar 768px dan di bawahnya) */
+@media (max-width: 768px) {
+    
+    /* Navigasi Utama */
+    nav {
+        padding: 10px 20px;
+        flex-wrap: wrap; /* Memungkinkan elemen untuk membungkus jika perlu */
+    }
+
+    /* Tampilkan Hamburger Icon */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 30px;
+        color: #1a237e;
+    }
+
+    /* Menu (Diubah menjadi vertikal) */
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        display: none; /* Sembunyikan menu secara default */
+        text-align: left;
+        padding-top: 10px;
+    }
+
+    /* Tampilkan menu saat dibuka (gunakan JavaScript untuk menambahkan kelas 'active') */
+    .menu.active {
+        display: flex;
+    }
+
+    .menu > li {
+        padding: 10px 0;
+        border-top: 1px solid #eee;
+    }
+    
+    .menu > li:last-child {
+        border-bottom: 1px solid #eee;
+    }
+
+    .menu > li > a {
+        padding: 10px 0;
+    }
+
+    /* Dropdown Menu (Diubah agar muncul di bawah item utama di mode vertikal) */
+    .menu ul {
+        position: static; /* Ganti dari absolute ke static */
+        box-shadow: none;
+        border-left: 3px solid #00bcd4;
+        border-top: none;
+        margin-top: 5px;
+        margin-left: 10px;
+        opacity: 1; /* Selalu tampil */
+        visibility: visible;
+        display: none; /* Sembunyikan secara default */
+        min-width: auto;
+    }
+
+    /* Tampilkan submenu saat hover (atau klik dengan JS) */
+    .menu li:hover > ul {
+        display: block;
+    }
+    
+    .menu ul li a {
+        padding: 5px 15px;
+        background-color: #f9f9f9;
+    }
+
+    /* Untuk membuat logo tetap rapi */
+    .logo-nav a:before {
+        font-size: 1.5em;
+    }
+    .logo-nav img {
+        width: 100%;
+    }
+    .logo-nav {
+        width: 200px;
+    }
+
+}
