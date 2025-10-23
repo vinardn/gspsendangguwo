@@ -29,3 +29,18 @@ const hamburger = document.querySelector('.hamburger');
                 return false;
             }
         };
+
+        const menuItems = document.querySelectorAll('.menu > li');
+
+menuItems.forEach(item => {
+    // Hanya berlaku untuk item yang memiliki submenu
+    if (item.querySelector('ul')) { 
+        item.addEventListener('click', function(e) {
+            // Mencegah navigasi jika link dinonaktifkan
+            // e.preventDefault(); 
+            
+            // Toggle class untuk menampilkan submenu dengan smooth transition
+            this.classList.toggle('show-submenu'); 
+        });
+    }
+});

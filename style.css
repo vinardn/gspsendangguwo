@@ -38,6 +38,7 @@ nav {
 .menu > li {
     padding: 0 15px;
     position: relative; /* Penting untuk dropdown */
+    transition: 0.3s;
 }
 
 .menu > li > a {
@@ -52,6 +53,7 @@ nav {
 
 .menu > li > a:hover {
     color: #8e24aa; /* Efek hover */
+    transition: 0.5s;
 }
 
 /* Dropdown Menu */
@@ -68,13 +70,13 @@ nav {
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
     border-top: 3px solid #00bcd4; /* Aksen warna */
-    transition: 0.8s;
+    transition: 0.5s;
 }
 
 .menu li:hover > ul {
     opacity: 1; /* Tampilkan saat hover */
     visibility: visible;
-    transition: 0.8s;
+    transition: 0.5s;
 }
 
 .menu ul li {
@@ -125,16 +127,19 @@ nav {
         display: none; /* Sembunyikan menu secara default */
         text-align: left;
         padding-top: 10px;
+        transition: 0.8s;
     }
 
     /* Tampilkan menu saat dibuka (gunakan JavaScript untuk menambahkan kelas 'active') */
     .menu.active {
         display: flex;
+        transition: 0.8s;
     }
 
     .menu > li {
         padding: 10px 0;
         border-top: 1px solid #eee;
+        transition: 0.8s;
     }
     
     .menu > li:last-child {
@@ -143,6 +148,7 @@ nav {
 
     .menu > li > a {
         padding: 10px 0;
+        transition: 0.8s;
     }
 
     /* Dropdown Menu (Diubah agar muncul di bawah item utama di mode vertikal) */
@@ -157,11 +163,16 @@ nav {
         visibility: visible;
         display: none; /* Sembunyikan secara default */
         min-width: auto;
+        display: block;             /* HARUS block/flex agar max-height berfungsi */
+        max-height: 0;              /* Sembunyikan dengan tinggi 0 */
+        overflow: hidden;           /* Potong konten yang melebihi 0 */
+        transition: max-height 0.4s ease-in-out;
     }
 
     /* Tampilkan submenu saat hover (atau klik dengan JS) */
     .menu li:hover > ul {
         display: block;
+        max-height: 500px;
     }
     
     .menu ul li a {
