@@ -48,7 +48,6 @@ nav {
 .menu > li > a {
     text-decoration: none;
     color: #1a237e; /* Warna teks menu utama */
-    font-weight: 500;
     font-size: 1em;
     padding: 20px 0; /* Padding vertikal untuk area klik */
     display: block;
@@ -247,6 +246,10 @@ nav {
     padding: 20px;
 }
 
+.hero-content p, h1 {
+    color: white;
+}
+
 .greeting-text {
     font-size: 1.5em;
     font-weight: 400;
@@ -364,6 +367,8 @@ nav {
     width: 40%;
     max-width: 350px; 
     padding-top: 20px;
+    /* TAMBAHAN BARU: Tambahkan text-align center agar tombol di dalamnya bisa ditengah */
+    text-align: center;
 }
 
 .history-image img {
@@ -371,6 +376,30 @@ nav {
     height: auto;
     border-radius: 15px; 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* TAMBAHAN BARU: Tambahkan margin-bottom agar ada jarak ke tombol */
+    margin-bottom: 20px; 
+}
+
+/* Styling Tombol Baca Selengkapnya */
+.read-more-btn {
+    display: inline-block; /* Agar bisa diatur padding dan margin */
+    padding: 10px 25px;
+    background-color: var(--accent-color, orange); /* Gunakan warna aksen atau sesuaikan */
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Set lebar agar tampak seperti pada gambar jika diperlukan */
+    width: 80%; 
+    max-width: 280px;
+    text-align: center;
+    box-sizing: border-box; /* Agar padding tidak menambah lebar keseluruhan */
+}
+
+.read-more-btn:hover {
+    background-color: var(--dark-accent-color, darkorange); /* Ganti warna saat hover */
 }
 
 /* Kolom Teks Sejarah */
@@ -399,7 +428,11 @@ nav {
     }
 
     .section-header h2 {
-        font-size: 2em;
+        display: none;
+    }
+
+    .section-header {
+        display: none;
     }
 
     .history-layout {
@@ -411,12 +444,19 @@ nav {
         width: 100%;
         max-width: 100%;
         padding-top: 0;
+        text-align: center; /* Pastikan ini tetap ada */
     }
     
     .history-image img {
         width: 80%; 
-        margin: 0 auto;
+        margin: 0 auto 20px auto; /* Tambahkan margin bawah */
         display: block;
+    }
+
+    /* Penyesuaian Tombol di HP */
+    .read-more-btn {
+        width: 80%; /* Sesuaikan dengan lebar gambar */
+        margin-bottom: 20px; /* Tambahkan jarak di bawah tombol agar tidak terlalu rapat dengan teks */
     }
 
     /* PERUBAHAN: class container-pengenalan-gereja di responsif */
@@ -435,4 +475,577 @@ nav {
 
 /* ====================== */
 /* Pengenalan End */
+/* ====================== */
+
+/* ====================== */
+/* Waktu Misa Start */
+/* ====================== */
+
+.schedule-section {
+    padding: 50px 0;
+    /* Menggunakan nilai warna langsung atau variabel global jika didefinisikan di luar */
+    background-color: #f7f7f7; 
+    font-family: Arial, sans-serif;
+}
+
+.container-schedule {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 2em;
+    color: var(--primary-text-color, #333333); 
+    margin-bottom: 40px;
+    text-align: left;
+    letter-spacing: 2px;
+}
+
+/* --- Wrapper Kartu --- */
+.schedule-cards-wrapper {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+/* --- Gaya Kartu Jadwal --- */
+.schedule-card {
+    background: white;
+    /* Menggunakan variabel global */
+    border: 1px solid var(--card-border-color, #d8d8d8);
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1; 
+    min-width: 280px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* --- Header Kartu (Perayaan) - Menggunakan class baru: card-header-schedule --- */
+.card-header-schedule {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.card-header-schedule .celebration {
+    font-size: 0.9em;
+    font-weight: 500;
+    /* Menggunakan variabel global */
+    color: var(--primary-text-color, #333333); 
+    margin: 0;
+}
+
+.card-header-schedule .celebration-detail {
+    font-size: 1.2em;
+    font-weight: 700;
+    /* Menggunakan variabel global */
+    color: var(--primary-text-color, #333333); 
+    margin: 5px 0 0 0;
+}
+
+/* --- Entri Jadwal (Waktu dan Hari) --- */
+.schedule-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    position: relative;
+}
+
+.schedule-entry:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    height: 1px;
+    /* Menggunakan variabel global */
+    background-color: var(--card-border-color, #d8d8d8);
+}
+
+.schedule-entry .schedule-label {
+    font-weight: 400;
+    color: #666;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.schedule-entry .schedule-value {
+    font-weight: 700;
+    /* Menggunakan variabel global */
+    color: var(--primary-text-color, #333333); 
+    font-size: 1.1em;
+    margin: 0;
+}
+
+/* Styling Khusus untuk Kartu Misa Minggu Biasa (3 kolom virtual) */
+.full-width-entry {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.time-pair {
+    display: flex;
+    flex-direction: column;
+    width: 50%; 
+}
+
+/* Garis Vertikal di tengah Kartu Misa Minggu Biasa */
+.schedule-card:last-child::before {
+    content: '';
+    position: absolute;
+    top: 100px; 
+    bottom: 20px;
+    left: 50%;
+    width: 1px;
+    background-color: #eeeeee;
+    transform: translateX(-50%);
+}
+
+/* Adjust untuk Kartu Minggu agar entri di kartu ketiga terlihat 2 kolom */
+.schedule-card:last-child .schedule-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 0;
+}
+
+.schedule-card:last-child .time-pair {
+    width: 45%; 
+    padding: 0 10px; 
+    text-align: left;
+}
+.schedule-card:last-child .time-pair:last-child {
+    text-align: right;
+}
+
+
+/* --- Kotak Catatan (Orange Box) --- */
+.note-box {
+    /* Menggunakan variabel global */
+    background-color: var(--note-bg-color, #ff8c00);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.note-box p {
+    margin: 0;
+}
+
+/* --- Responsif (Untuk Layar Kecil) --- */
+@media (max-width: 900px) {
+    .schedule-cards-wrapper {
+        gap: 20px;
+    }
+    .schedule-card {
+        min-width: 45%; 
+    }
+}
+
+@media (max-width: 600px) {
+    .schedule-card {
+        min-width: 90%; 
+        flex: none;
+    }
+    
+    .section-title {
+        text-align: center;
+    }
+}
+
+/* ====================== */
+/* Waktu Misa End */
+/* ====================== */
+
+/* ====================== */
+/* News Start */
+/* ====================== */
+
+.news-section {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fcfcfc; /* Dulu --outer-bg */
+}
+
+/* PERUBAHAN: class container */
+.container-news {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-top: 100px;
+}
+
+/* Bagian Berita Utama */
+.news-section {
+    padding: 50px 0;
+}
+
+.section-title {
+    font-size: 2.2em;
+    color: #212121; /* Dulu --text-dark */
+    margin-bottom: 5px;
+}
+
+.title-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    margin-bottom: 40px;
+}
+
+/* Tata Letak Grid untuk Card */
+.news-grid {
+    display: grid;
+    /* 3 kolom dengan ukuran yang sama */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+/* Card Berita Individu */
+.news-card {
+    background-color: #ffffff; /* Dulu --card-bg */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden; 
+}
+
+/* Container Gambar */
+.card-image-container {
+    background-color: #f0f0f0;
+    padding-top: 75%; 
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 8px;
+}
+
+.card-content {
+    padding: 15px 20px 10px;
+}
+
+.card-content h3 {
+    font-size: 1.4em;
+    color: #212121; /* Dulu --text-dark */
+    margin: 10px 0 10px;
+}
+
+.card-category {
+    font-size: 1.1em;
+    font-weight: 400;
+    color: #212121; /* Dulu --text-dark */
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 12px;
+    color: #787777d1; 
+    line-height: 1.5;
+    margin-bottom: 20px;
+    overflow: hidden; 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.read-more-section {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.read-more-link {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #007bff; /* Dulu --accent-blue */
+    text-decoration: none;
+}
+
+.read-more-link:hover {
+    text-decoration: underline;
+}
+
+.content-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #bbbbbb; /* Dulu --divider-color */
+    margin-top: 10px;
+}
+
+.card-date {
+    font-size: 0.75em;
+    color: #555555; /* Dulu --text-light */
+    margin-top: 5px;
+}
+
+
+/* Responsif */
+@media (max-width: 992px) {
+    .news-grid {
+        /* Ubah menjadi 2 kolom di tablet */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .news-grid {
+        /* Ubah menjadi 1 kolom di HP */
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        text-align: center;
+    }
+    
+    .title-divider {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ====================== */
+/* News End */
+/* ====================== */
+
+/* ====================== */
+/* Footer Start */
+/* ====================== */
+
+.main-footer {
+    /* Menggunakan nilai warna langsung */
+    margin-top: 100px;
+    background-color: #f7f7f7; 
+    padding: 40px 0 10px;
+    font-family: Arial, sans-serif;
+    color: #333333;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Bagian Atas Footer (Kolom) --- */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #cccccc; /* Warna border */
+}
+
+.footer-col {
+    flex: 1; 
+    min-width: 180px; 
+}
+
+/* Penyesuaian lebar kolom spesifik */
+.brand-col {
+    flex: 0 0 180px; 
+}
+.contact-col {
+    flex: 1.5; 
+}
+
+.col-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 25px;
+}
+
+/* --- Kolom Brand (Logo & Medsos) --- */
+.church-logo, .komsos-brand {
+    margin-bottom: 15px;
+}
+
+.church-logo img {
+    width: 70px;
+}
+
+.komsos-brand img {
+    width: 200px;
+}
+
+.logo-image, .komsos-logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-link {
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white; 
+}
+.social-link.instagram {
+    background-color: #C13584; /* Warna Instagram */
+}
+.social-link.youtube {
+    background-color: #FF0000; /* Warna YouTube */
+}
+
+/* --- Kolom Kontak/Alamat --- */
+.address {
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: #666666; /* Warna teks sekunder */
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.icon-text {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.contact-link {
+    color: #333333;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* --- Kolom Jam Buka --- */
+.hours-detail {
+    margin-bottom: 20px;
+    color: #666666;
+}
+
+.hours-detail strong {
+    font-weight: 700;
+    color: #333333;
+}
+
+.holiday-note {
+    margin: 0;
+    font-size: 15px;
+}
+
+.holiday-note.closing {
+    font-weight: 700;
+    color: #FF0000; /* Merah untuk TUTUP */
+}
+
+/* --- Kolom Akses Cepat --- */
+.quick-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-links li {
+    margin-bottom: 10px;
+}
+
+.quick-links a {
+    color: #333333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.quick-links a:hover {
+    color: #FF0000;
+}
+
+/* --- Bagian Bawah Footer (Copyright) --- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+    color: #666666;
+    padding: 10px 0;
+}
+
+
+/* --- Responsif --- */
+@media (max-width: 992px) {
+    .footer-top {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .footer-col {
+        min-width: 45%; 
+        margin-bottom: 30px;
+    }
+
+    .brand-col {
+        flex: 0 0 100%; 
+        text-align: center;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+
+    .church-logo img {
+        margin: auto;
+    }
+    
+    .komsos-brand img {
+        margin: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-col {
+        min-width: 100%; 
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    .copyright {
+        margin-bottom: 5px;
+    }
+
+    .church-logo img {
+        margin: auto;
+    }
+    
+    .komsos-brand img {
+        margin: auto;
+    }
+}
+
+/* ====================== */
+/* Footer End */
 /* ====================== */
