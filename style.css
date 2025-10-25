@@ -987,6 +987,31 @@ nav {
     margin-top: 5px;
 }
 
+.news-footer {
+    text-align: center; /* Untuk menengahkan tombol */
+    padding-top: 40px; /* Jarak dari grid berita di atas */
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+/* Style untuk tombol "Berita Lainnya" */
+.more-news-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff8c00; /* Warna Oranye */
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 140, 0, 0.4);
+}
+
+.more-news-button:hover {
+    background-color: #e67e00; /* Oranye gelap saat hover */
+}
+
 
 /* Responsif */
 @media (max-width: 992px) {
