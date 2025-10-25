@@ -669,6 +669,197 @@ nav {
 /* ====================== */
 
 /* ====================== */
+/* Jumlah Umat Start */
+/* ====================== */
+
+.counter-section {
+    padding: 80px 0; /* Padding vertikal untuk ruang */
+    position: relative;
+    overflow: hidden;
+    /* Tambahkan border-radius di sini jika Anda ingin sudut luar melengkung */
+}
+
+/* Container untuk memastikan tampilan berada di tengah dan memiliki batas max-width */
+.counter-container {
+    max-width: 900px; /* Lebar maksimum area konten */
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff; /* Warna teks utama (putih) */
+    position: relative; 
+    z-index: 2; 
+    padding: 40px 20px;
+    
+    /* Style untuk kotak rounded di sekitar konten, seperti pada gambar */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.731); /* Sedikit latar belakang putih transparan */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Gaya Angka Penghitung */
+.counter-number {
+    font-size: 5em;
+    font-weight: 800;
+    color: #ff8c00; /* Warna oranye terang */
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+/* Gaya Label Teks */
+.counter-label {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #ff8c00; /* Warna oranye terang */
+}
+
+
+/* --- Latar Belakang & Overlay --- */
+
+/* Latar Belakang Gambar (Ganti URL dengan gambar Anda) */
+.counter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('Element/image/totaly-umat.png') no-repeat center center/cover;
+    filter: blur(2px); /* Efek blur pada gambar latar */
+    z-index: 0;
+}
+
+/* Overlay Transparan Abu-abu */
+.counter-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.227); /* Overlay abu-abu transparan */
+    z-index: 1;
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .counter-number {
+        font-size: 3.5em;
+    }
+    .counter-label {
+        font-size: 1em;
+    }
+    .counter-container {
+        padding: 30px 15px;
+    }
+}
+
+/* ====================== */
+/* Jumlah Umat End */
+/* ====================== */
+
+/* ====================== */
+/* Informasi Pembangunan Start */
+/* ====================== */
+
+.pembangunan-section {
+    padding: 80px 0;
+    /* Latar belakang putih gading */
+    background-color: #fcfcfc; 
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+}
+
+.pembangunan-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex; /* Mengaktifkan tata letak kolom */
+    align-items: center; /* Memastikan konten sejajar di tengah secara vertikal */
+    gap: 40px; /* Jarak antara gambar dan teks */
+}
+
+/* --- Kolom Gambar --- */
+.pembangunan-image-wrapper {
+    flex: 1; /* Memberikan porsi yang sama pada kolom gambar */
+    max-width: 50%; /* Batasi lebar maksimum */
+}
+
+.pembangunan-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Sudut membulat pada gambar/wrapper */
+    border-radius: 15px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Kolom Konten (Teks & Tombol) --- */
+.pembangunan-content {
+    flex: 1; /* Memberikan porsi yang sama pada kolom konten */
+    max-width: 50%; 
+    padding: 20px 0; /* Memberi ruang di atas/bawah */
+}
+
+.pembangunan-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: #333333;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.pembangunan-description {
+    font-size: 1.1em;
+    font-weight: 400;
+    color: #666666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* --- Tombol "Klik Disini" --- */
+.pembangunan-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #ff8c00; /* Warna Oranye */
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4);
+}
+
+.pembangunan-button:hover {
+    background-color: #e67e00; /* Oranye gelap saat hover */
+}
+
+/* --- Responsif --- */
+@media (max-width: 992px) {
+    .pembangunan-container {
+        flex-direction: column; /* Mengubah tata letak menjadi vertikal */
+        gap: 30px;
+    }
+    
+    .pembangunan-image-wrapper,
+    .pembangunan-content {
+        max-width: 100%; /* Ambil lebar penuh */
+        flex: none;
+    }
+
+    .pembangunan-content {
+        text-align: center; /* Tengahkan teks di mode responsif */
+    }
+
+    .pembangunan-title {
+        font-size: 2em;
+    }
+}
+
+/* ====================== */
+/* Informassi Pembangunan End */
+/* ====================== */
+
+/* ====================== */
 /* News Start */
 /* ====================== */
 
