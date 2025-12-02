@@ -1,0 +1,514 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ====================== */
+/* Navbar Start */
+/* ====================== */
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* Menjaga logo di kiri dan menu di kanan */
+    align-items: center;
+    background-color: #ffffff; /* Latar belakang putih */
+    padding: 10px 5%; /* Padding atas/bawah 10px, kiri/kanan 5% */
+    box-shadow: 0px 0px 4px #000000;
+    z-index: 100;
+    position: fixed;
+    
+}
+
+/* Logo */
+.logo-nav {
+    width: 200px;
+}
+
+.logo-nav img {
+    width: 100%;
+}
+
+/* Menu Navigasi */
+.menu {
+    list-style: none;
+    display: flex; /* Menu horizontal */
+}
+
+.menu > li {
+    padding: 0 15px;
+    position: relative; /* Penting untuk dropdown */
+    transition: 0.3s;
+}
+
+.menu > li > a {
+    text-decoration: none;
+    color: #1a237e; /* Warna teks menu utama */
+    font-size: 1em;
+    padding: 20px 0; /* Padding vertikal untuk area klik */
+    display: block;
+    transition: color 0.3s;
+}
+
+.menu > li > a:hover {
+    color: #8e24aa; /* Efek hover */
+    transition: 0.5s;
+}
+
+/* Dropdown Menu */
+.menu ul {
+    list-style: none;
+    position: absolute;
+    top: 100%; /* Posisi di bawah item utama */
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 200px;
+    opacity: 0; /* Sembunyikan secara default */
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    border-top: 3px solid #00bcd4; /* Aksen warna */
+    transition: 0.5s;
+}
+
+.menu li:hover > ul {
+    opacity: 1; /* Tampilkan saat hover */
+    visibility: visible;
+    transition: 0.5s;
+}
+
+.menu ul li {
+    padding: 0;
+}
+
+.menu ul li a {
+    padding: 10px 15px;
+    display: block;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #1a237e;
+    font-size: 0.9em;
+}
+
+.menu ul li a:hover {
+    background-color: #f1f1f1;
+    color: #8e24aa;
+    
+}
+
+/* Sembunyikan Hamburger Icon (default desktop) */
+.hamburger {
+    display: none;
+}
+
+/* Breakpoint Responsif (Misalnya, untuk layar lebar 768px dan di bawahnya) */
+@media (max-width: 768px) {
+    
+    /* Navigasi Utama */
+    nav {
+        padding: 10px 20px;
+        flex-wrap: wrap; /* Memungkinkan elemen untuk membungkus jika perlu */
+    }
+
+    /* Tampilkan Hamburger Icon */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 30px;
+        color: #1a237e;
+    }
+
+    /* Menu (Diubah menjadi vertikal) */
+    .menu {
+        flex-direction: column;
+        width: 100%;
+        display: none; /* Sembunyikan menu secara default */
+        text-align: left;
+        padding-top: 10px;
+        transition: 0.8s;
+    }
+
+    /* Tampilkan menu saat dibuka (gunakan JavaScript untuk menambahkan kelas 'active') */
+    .menu.active {
+        display: flex;
+        transition: 0.8s;
+    }
+
+    .menu > li {
+        padding: 10px 0;
+        border-top: 1px solid #eee;
+        transition: 0.8s;
+    }
+    
+    .menu > li:last-child {
+        border-bottom: 1px solid #eee;
+    }
+
+    .menu > li > a {
+        padding: 10px 0;
+        transition: 0.8s;
+    }
+
+    /* Dropdown Menu (Diubah agar muncul di bawah item utama di mode vertikal) */
+    .menu ul {
+        position: static; /* Ganti dari absolute ke static */
+        box-shadow: none;
+        border-left: 3px solid #00bcd4;
+        border-top: none;
+        margin-top: 5px;
+        margin-left: 10px;
+        opacity: 1; /* Selalu tampil */
+        visibility: visible;
+        display: none; /* Sembunyikan secara default */
+        min-width: auto;
+        display: block;             /* HARUS block/flex agar max-height berfungsi */
+        max-height: 0;              /* Sembunyikan dengan tinggi 0 */
+        overflow: hidden;           /* Potong konten yang melebihi 0 */
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    /* Tampilkan submenu saat hover (atau klik dengan JS) */
+    .menu li:hover > ul {
+        display: block;
+        max-height: 500px;
+    }
+    
+    .menu ul li a {
+        padding: 5px 15px;
+        background-color: #f9f9f9;
+    }
+
+    /* Untuk membuat logo tetap rapi */
+    .logo-nav a:before {
+        font-size: 1.5em;
+    }
+    .logo-nav img {
+        width: 100%;
+    }
+    .logo-nav {
+        width: 200px;
+    }
+
+}
+
+/* ====================== */
+/* Navbar End */
+/* ====================== */
+
+/* ====================== */
+/* Visi dan Misi Start */
+/* ====================== */
+
+.vision-mission-section {
+    /* Latar belakang putih gading/sangat terang */
+    background-color: #fcfcfc; 
+    padding: 60px 0;
+}
+
+.vm-container {
+    /* Batas lebar konten agar mudah dibaca */
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 0 20px;
+    color: #333333;
+}
+
+/* --- Gaya Judul (Visi & Misi) --- */
+.vm-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #212121;
+}
+
+/* Styling Khusus untuk Judul Misi (dengan garis bawah) */
+.mission-title {
+    position: relative;
+    display: inline-block; /* Agar garis bawah hanya sepanjang teks */
+    padding-bottom: 5px; /* Jarak antara teks dan garis */
+    
+    /* Menghilangkan margin-top default dari h2 jika ada di vision-content */
+    margin-top: 30px; 
+}
+
+.mission-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #007bff; /* Warna biru untuk garis bawah */
+}
+
+/* --- Gaya Konten Visi --- */
+.vision-content {
+    margin-bottom: 40px;
+}
+
+.vm-text {
+    font-size: 1em;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* --- Gaya Konten Misi (Daftar Berurut) --- */
+.mission-list {
+    list-style-type: decimal; /* Memastikan penomoran 1, 2, 3... */
+    padding-left: 20px; /* Padding default untuk penomoran */
+    margin: 0;
+}
+
+.mission-list li {
+    font-size: 1em;
+    line-height: 1.8; 
+    margin-bottom: 15px; /* Jarak antar item daftar */
+    font-weight: 400;
+    padding-left: 10px; /* Sedikit jarak setelah nomor */
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+    .vm-title {
+        font-size: 1.5em;
+    }
+    .mission-list {
+        padding-left: 25px;
+    }
+    .mission-list li {
+        font-size: 0.95em;
+    }
+}
+
+/* ====================== */
+/* Visi dan Misi End */
+/* ====================== */
+
+
+/* ====================== */
+/* Footer Start */
+/* ====================== */
+
+.main-footer {
+    /* Menggunakan nilai warna langsung */
+    margin-top: 100px;
+    background-color: #f7f7f7; 
+    padding: 40px 0 10px;
+    font-family: Arial, sans-serif;
+    color: #333333;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Bagian Atas Footer (Kolom) --- */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #cccccc; /* Warna border */
+}
+
+.footer-col {
+    flex: 1; 
+    min-width: 180px; 
+}
+
+/* Penyesuaian lebar kolom spesifik */
+.brand-col {
+    flex: 0 0 180px; 
+}
+.contact-col {
+    flex: 1.5; 
+}
+
+.col-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 25px;
+}
+
+/* --- Kolom Brand (Logo & Medsos) --- */
+.church-logo, .komsos-brand {
+    margin-bottom: 15px;
+}
+
+.church-logo img {
+    width: 70px;
+}
+
+.komsos-brand img {
+    width: 200px;
+}
+
+.logo-image, .komsos-logo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-link {
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white; 
+}
+.social-link.instagram {
+    background-color: #C13584; /* Warna Instagram */
+}
+.social-link.youtube {
+    background-color: #FF0000; /* Warna YouTube */
+}
+
+/* --- Kolom Kontak/Alamat --- */
+.address {
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: #666666; /* Warna teks sekunder */
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.icon-text {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.contact-link {
+    color: #333333;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* --- Kolom Jam Buka --- */
+.hours-detail {
+    margin-bottom: 20px;
+    color: #666666;
+}
+
+.hours-detail strong {
+    font-weight: 700;
+    color: #333333;
+}
+
+.holiday-note {
+    margin: 0;
+    font-size: 15px;
+}
+
+.holiday-note.closing {
+    font-weight: 700;
+    color: #FF0000; /* Merah untuk TUTUP */
+}
+
+/* --- Kolom Akses Cepat --- */
+.quick-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-links li {
+    margin-bottom: 10px;
+}
+
+.quick-links a {
+    color: #333333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.quick-links a:hover {
+    color: #FF0000;
+}
+
+/* --- Bagian Bawah Footer (Copyright) --- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+    color: #666666;
+    padding: 10px 0;
+}
+
+
+/* --- Responsif --- */
+@media (max-width: 992px) {
+    .footer-top {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .footer-col {
+        min-width: 45%; 
+        margin-bottom: 30px;
+    }
+
+    .brand-col {
+        flex: 0 0 100%; 
+        text-align: center;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+
+    .church-logo img {
+        margin: auto;
+    }
+    
+    .komsos-brand img {
+        margin: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-col {
+        min-width: 100%; 
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    .copyright {
+        margin-bottom: 5px;
+    }
+
+    .church-logo img {
+        margin: auto;
+    }
+    
+    .komsos-brand img {
+        margin: auto;
+    }
+}
+
+/* ====================== */
+/* Footer End */
+/* ====================== */
